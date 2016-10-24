@@ -2,10 +2,21 @@ SparkFun_MAG3110_Breakout_Board_Arduino_Library
 ============================================
 Arduino Library for the SparkFun Triple Axis Magnetometer Breakout - MAG3110
 
-[![MAG-3110](https://cdn.sparkfun.com//assets/parts/9/3/9/8/12670-01.jpg)  
-*Triple Axis Magnetometer Breakout - MAG3110 (SEN-12670)*](https://www.sparkfun.com/products/12670)
+This library makes it easy for you to get started with the MAG3110 breakout board. It also has commands included for more advanced users that want to squeeze even more functionality out of the MAG3110.
 
-Breakout board for MAG3110 digital magnetometer [The datasheet can be found here.](https://dlnmh9ip6v2uc.cloudfront.net/datasheets/Sensors/Magneto/MAG3110.pdf)
+You will also be able to calibrate the MAG3110 whenever necessary as shown in the example.
+
+SparkFun MAG3110 Arduino Library
+========================================
+
+[![SparkFun MAG3110](https://cdn.sparkfun.com//assets/parts/9/3/9/8/12670-01.jpg)](https://www.sparkfun.com/products/12670)
+
+[*SparkFun Triple Axis Magnetometer Breakout - MAG3110*](https://www.sparkfun.com/products/12670)
+
+Freescale’s MAG3110 is a small, low-power, digital 3-axis magnetometer. The device can be used in conjunction with a 3-axis accelerometer to produce orientation independent accurate compass heading information. It features a standard I2C serial interface output and smart embedded functions. It’s also a tiny QFN package which isn’t very easy to play with so here is our easy to use breakout board. This board breaks out all of the pins for the MAG3110 to a standard 0.1" header and also supplies the necessary filtering capacitors so that you can easily use it in your next navigation project.
+
+This library includes functions that allow you to read your heading to magnetic north. Data from this is output on the range of -180 degrees to +180 degrees.
+
 
 Repository Contents
 -------------------
@@ -22,10 +33,15 @@ Documentation
 * **[Product Repository](https://www.sparkfun.com/products/12670)** - Main repository (including hardware files).
 * **[Hookup Guide](https://learn.sparkfun.com/tutorials/mag3110-magnetometer-hookup-guide-)** - Basic hookup guide.
 
+Products that use this Library 
+---------------------------------
+
+* [SparkFun Triple Axis Magnetometer Breakout - MAG3110 - SEN-12670 ](https://www.sparkfun.com/products/12670)- MAG3110 is a small, low-power, digital 3-axis magnetometer. The device can be used in conjunction with a 3-axis accelerometer to produce orientation independent accurate compass heading information. It features a standard I2C serial interface output and smart embedded functions. It’s also a tiny QFN package which isn’t very easy to play with so here is our easy to use breakout board. This board breaks out all of the pins for the MAG3110 to a standard 0.1" header and also supplies the necessary filtering capacitors so that you can easily use it in your next navigation project.
+
 Version History
 ---------------
-* [SEN-10619](https://www.sparkfun.com/products/10619) Version 1.1 of the Sensor
- 
+
+* [1.0.0]() - Initial release of the Triple Axis Accelerometer Breakout - MAG3110 SparkFun Library.
 
 License Information
 -------------------
@@ -38,11 +54,9 @@ If you have any questions or concerns on licensing, please contact techsupport@s
 
 Distributed as-is; no warranty is given.
 
-- Your friends at SparkFun.
+- Your friends at SparkFun. And George the contract author :)
 
-
-
-
+_<COLLABORATION CREDIT>_
 
 
 
