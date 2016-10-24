@@ -30,7 +30,7 @@ Documentation
 --------------
 
 * **[Installing an Arduino Library Guide](https://learn.sparkfun.com/tutorials/installing-an-arduino-library)** - Basic information on how to install an Arduino library.
-* **[Product Repository](https://www.sparkfun.com/products/12670)** - Main repository (including hardware files).
+* **[Product Repository](https://github.com/sparkfun/MAG3110_Breakout_Board)** - Main repository (including hardware files).
 * **[Hookup Guide](https://learn.sparkfun.com/tutorials/mag3110-magnetometer-hookup-guide-)** - Basic hookup guide.
 
 Products that use this Library 
