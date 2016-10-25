@@ -9,7 +9,7 @@ You will also be able to calibrate the MAG3110 whenever necessary as shown in th
 SparkFun MAG3110 Arduino Library
 ========================================
 
-![SparkFun MAG3110](https://cdn.sparkfun.com//assets/parts/9/3/9/8/12670-01.jpg)](https://www.sparkfun.com/products/12670)
+[![SparkFun MAG3110](https://cdn.sparkfun.com//assets/parts/9/3/9/8/12670-01.jpg)](https://www.sparkfun.com/products/12670)
 
 [*SparkFun Triple Axis Magnetometer Breakout - MAG3110*](https://www.sparkfun.com/products/12670)
 
