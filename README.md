@@ -1,4 +1,4 @@
-SparkFun_MAG3110_Breakout_Board_Arduino_Library
+SparkFun MAG3110 Breakout Board Arduino Library
 ============================================
 Arduino Library for the SparkFun Triple Axis Magnetometer Breakout - MAG3110
 
@@ -9,7 +9,7 @@ You will also be able to calibrate the MAG3110 whenever necessary as shown in th
 SparkFun MAG3110 Arduino Library
 ========================================
 
-[![SparkFun MAG3110](https://cdn.sparkfun.com//assets/parts/9/3/9/8/12670-01.jpg)](https://www.sparkfun.com/products/12670)
+![SparkFun MAG3110](https://cdn.sparkfun.com//assets/parts/9/3/9/8/12670-01.jpg)](https://www.sparkfun.com/products/12670)
 
 [*SparkFun Triple Axis Magnetometer Breakout - MAG3110*](https://www.sparkfun.com/products/12670)
 
@@ -56,7 +56,7 @@ Distributed as-is; no warranty is given.
 
 - Your friends at SparkFun. And George the contract author :)
 
-_<COLLABORATION CREDIT>_
+
 
 
 
