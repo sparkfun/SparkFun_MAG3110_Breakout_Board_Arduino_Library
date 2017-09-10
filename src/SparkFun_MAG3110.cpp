@@ -316,6 +316,6 @@ int MAG3110::readAxis(uint8_t axis){
 	
 	lsb = readRegister(lsbAddress);
 	
-	int out = (lsb | (msb << 8)); //concatenate the MSB and LSB
-	return out;
+	int16_t out = (lsb | (msb << 8)); //concatenate the MSB and LSB;
+	return (int)out;
 }
