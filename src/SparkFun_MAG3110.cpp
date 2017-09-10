@@ -35,16 +35,18 @@ MAG3110::MAG3110() {
 	y_scale = 0.0f;
 }
 
-void MAG3110::initialize() {
+bool MAG3110::initialize() {
 	Wire.begin();
 	if(readRegister(MAG3110_WHO_AM_I) != MAG3110_WHO_AM_I_RSP){ //Could not find MAG3110
 		//Serial.println("Could not find MAG3110 connected!");
 		error = true;
+		return false;
 	}
 	else //Successfully initialized
 	{
 		//Initial values
 		reset();
+		return true;
 	}
 }
 
