@@ -80,10 +80,31 @@ bool MAG3110::dataReady() {
 }
 
 void MAG3110::readMag(int* x, int* y, int* z){
-	//Read each axis
-	*x = readAxis(MAG3110_OUT_X_MSB);
-	*y = readAxis(MAG3110_OUT_Y_MSB);
-	*z = readAxis(MAG3110_OUT_Z_MSB);
+
+	// Start readout at X MSB address
+	Wire.beginTransmission(MAG3110_I2C_ADDRESS);
+	Wire.write(MAG3110_OUT_X_MSB);
+	Wire.endTransmission();
+
+	delayMicroseconds(2);
+
+	// Read out data using multiple byte read mode
+	Wire.requestFrom(MAG3110_I2C_ADDRESS, 6);
+ 	while( Wire.available() != 6 ) {}
+
+ 	// Combine registers
+	uint16_t values[3];
+	for(uint8_t idx = 0; idx <= 2; idx++)
+	{
+		values[idx]  = Wire.read() << 8;	// MSB
+		values[idx] |= Wire.read();			// LSB
+	}
+
+	// Put data into referenced variables
+	*x = (int) values[0];
+	*y = (int) values[1];
+	*z = (int) values[2];
+
 }
 
 void MAG3110::readMicroTeslas(float* x, float* y, float* z){
