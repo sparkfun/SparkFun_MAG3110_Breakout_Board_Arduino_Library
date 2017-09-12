@@ -123,7 +123,7 @@ class MAG3110
  public:
   MAG3110();
   
-  void initialize();
+  bool initialize();
   
   //Public methods
   uint8_t readRegister(uint8_t address);

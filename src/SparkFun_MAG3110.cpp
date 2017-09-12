@@ -35,16 +35,18 @@ MAG3110::MAG3110() {
 	y_scale = 0.0f;
 }
 
-void MAG3110::initialize() {
+bool MAG3110::initialize() {
 	Wire.begin();
+	Wire.setClock(400000);		// I2C fast mode, 400kHz
 	if(readRegister(MAG3110_WHO_AM_I) != MAG3110_WHO_AM_I_RSP){ //Could not find MAG3110
 		//Serial.println("Could not find MAG3110 connected!");
-		error = true;
+		return false;
 	}
 	else //Successfully initialized
 	{
 		//Initial values
 		reset();
+		return true;
 	}
 }
 
@@ -78,18 +80,43 @@ bool MAG3110::dataReady() {
 }
 
 void MAG3110::readMag(int* x, int* y, int* z){
-	//Read each axis
-	*x = readAxis(MAG3110_OUT_X_MSB);
-	*y = readAxis(MAG3110_OUT_Y_MSB);
-	*z = readAxis(MAG3110_OUT_Z_MSB);
+
+	// Start readout at X MSB address
+	Wire.beginTransmission(MAG3110_I2C_ADDRESS);
+	Wire.write(MAG3110_OUT_X_MSB);
+	Wire.endTransmission();
+
+	delayMicroseconds(2);
+
+	// Read out data using multiple byte read mode
+	Wire.requestFrom(MAG3110_I2C_ADDRESS, 6);
+ 	while( Wire.available() != 6 ) {}
+
+ 	// Combine registers
+	uint16_t values[3];
+	for(uint8_t idx = 0; idx <= 2; idx++)
+	{
+		values[idx]  = Wire.read() << 8;	// MSB
+		values[idx] |= Wire.read();			// LSB
+	}
+
+	// Put data into referenced variables
+	*x = (int) values[0];
+	*y = (int) values[1];
+	*z = (int) values[2];
+
 }
 
 void MAG3110::readMicroTeslas(float* x, float* y, float* z){
 	
+	// Using internal read function
+	int x_int, y_int, z_int;
+	readMag(&x_int, &y_int, &z_int);
+
 	//Read each axis and scale to Teslas
-	*x = (float) readAxis(MAG3110_OUT_X_MSB) * 0.1f;
-	*y = (float) readAxis(MAG3110_OUT_Y_MSB) * 0.1f;
-	*z = (float) readAxis(MAG3110_OUT_Z_MSB) * 0.1f;
+	*x = (float) x_int * 0.1f;
+	*y = (float) y_int * 0.1f;
+	*z = (float) z_int * 0.1f;
 	
 }
 
@@ -316,6 +343,6 @@ int MAG3110::readAxis(uint8_t axis){
 	
 	lsb = readRegister(lsbAddress);
 	
-	int out = (lsb | (msb << 8)); //concatenate the MSB and LSB
-	return out;
+	int16_t out = (lsb | (msb << 8)); //concatenate the MSB and LSB;
+	return (int)out;
 }
