@@ -109,10 +109,14 @@ void MAG3110::readMag(int* x, int* y, int* z){
 
 void MAG3110::readMicroTeslas(float* x, float* y, float* z){
 	
+	// Using internal read function
+	int x_int, y_int, z_int;
+	readMag(&x_int, &y_int, &z_int);
+
 	//Read each axis and scale to Teslas
-	*x = (float) readAxis(MAG3110_OUT_X_MSB) * 0.1f;
-	*y = (float) readAxis(MAG3110_OUT_Y_MSB) * 0.1f;
-	*z = (float) readAxis(MAG3110_OUT_Z_MSB) * 0.1f;
+	*x = (float) x_int * 0.1f;
+	*y = (float) y_int * 0.1f;
+	*z = (float) z_int * 0.1f;
 	
 }
 
