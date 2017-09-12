@@ -37,6 +37,7 @@ MAG3110::MAG3110() {
 
 bool MAG3110::initialize() {
 	Wire.begin();
+	Wire.setClock(400000);		// I2C fast mode, 400kHz
 	if(readRegister(MAG3110_WHO_AM_I) != MAG3110_WHO_AM_I_RSP){ //Could not find MAG3110
 		//Serial.println("Could not find MAG3110 connected!");
 		error = true;
