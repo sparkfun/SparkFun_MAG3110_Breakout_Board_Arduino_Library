@@ -1,4 +1,4 @@
-/*  ********************************************* 
+/*  *********************************************
  *  SparkFun_MAG3110_Basic
  *  Triple Axis Magnetometer Breakout - MAG3110 
  *  Hook Up Guide Example 
@@ -29,7 +29,11 @@
 MAG3110 mag = MAG3110(); //Instantiate MAG3110
 
 void setup() {
+
   Serial.begin(9600);
+
+  Wire.begin();             //setup I2C bus
+  Wire.setClock(400000);    // I2C fast mode, 400kHz
 
   mag.initialize(); //Initializes the mag sensor
   mag.start();      //Puts the sensor in active mode

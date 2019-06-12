@@ -374,8 +374,12 @@ void setup() {
   uView.clear(PAGE);
 
   //Start communications
+
   Serial.begin(9600);
 
+  Wire.begin(); //setup I2C bus
+  Wire.setClock(400000);    // I2C fast mode, 400kHz
+  
   //Initialize the MAG3110
   mag.initialize();
   //Start calibration

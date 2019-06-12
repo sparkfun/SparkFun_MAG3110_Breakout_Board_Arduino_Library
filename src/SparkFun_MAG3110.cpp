@@ -36,8 +36,7 @@ MAG3110::MAG3110() {
 }
 
 bool MAG3110::initialize() {
-	Wire.begin();
-	Wire.setClock(400000);		// I2C fast mode, 400kHz
+
 	if(readRegister(MAG3110_WHO_AM_I) != MAG3110_WHO_AM_I_RSP){ //Could not find MAG3110
 		//Serial.println("Could not find MAG3110 connected!");
 		return false;
@@ -90,8 +89,7 @@ void MAG3110::readMag(int* x, int* y, int* z){
 
 	// Read out data using multiple byte read mode
 	Wire.requestFrom(MAG3110_I2C_ADDRESS, 6);
- 	while( Wire.available() != 6 ) {}
-
+ 
  	// Combine registers
 	uint16_t values[3];
 	for(uint8_t idx = 0; idx <= 2; idx++)
@@ -108,7 +106,7 @@ void MAG3110::readMag(int* x, int* y, int* z){
 }
 
 void MAG3110::readMicroTeslas(float* x, float* y, float* z){
-	
+
 	// Using internal read function
 	int x_int, y_int, z_int;
 	readMag(&x_int, &y_int, &z_int);
