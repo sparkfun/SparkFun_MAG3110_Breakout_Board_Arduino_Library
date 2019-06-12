@@ -41,7 +41,10 @@ Products that use this Library
 Version History
 ---------------
 
-* [1.0.0]() - Initial release of the Triple Axis Accelerometer Breakout - MAG3110 SparkFun Library.
+* [1.0.3](https://github.com/sparkfun/SparkFun_MAG3110_Breakout_Board_Arduino_Library/releases/tag/V_1.0.3) - Move Wire.begin() and unnecessary wait after Wire.requestFrom()
+* [1.0.2](https://github.com/sparkfun/SparkFun_MAG3110_Breakout_Board_Arduino_Library/releases/tag/V_1.0.2) - Update library properties version
+* [1.0.1](https://github.com/sparkfun/SparkFun_MAG3110_Breakout_Board_Arduino_Library/releases/tag/V_1.0.1) - Keyword Fix
+* [1.0.0](https://github.com/sparkfun/SparkFun_MAG3110_Breakout_Board_Arduino_Library/releases/tag/V_1.0.0) - Initial release of the Triple Axis Accelerometer Breakout - MAG3110 SparkFun Library.
 
 License Information
 -------------------
